@@ -116,8 +116,8 @@ header, section {
 }
 
 .image-container img {
-    width: 300px;
-    height: 150px;
+    width: 330px;
+    height: 200px;
     transition: all 0.3s ease;
     position: absolute;
     z-index: 1;
@@ -132,11 +132,12 @@ header, section {
     color: white;
     text-align: center;
     font-size: 1.2rem;
-    opacity: 0;
+    opacity: 1;
     transition: all 0.3s ease;
     position: absolute;
     width: 100%;
     top: 110%;
+    z-index: 0;
 }
 
 .corner-images:hover .image-container img {
@@ -150,6 +151,7 @@ header, section {
 }
 
 .image-container:hover .image-text {
+    z-index: 10;
     color: white;
     -webkit-text-stroke: 0px;
 }
@@ -157,6 +159,18 @@ header, section {
 .corner-images:hover .hero-text {
     color: black;
     border: 2px solid white;
+}
+
+@keyframes floatRandom {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, 5px); }
+    75% { transform: translate(5px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+
+.image-container:hover img {
+    animation: floatRandom 4s infinite alternate ease-in-out;
 }
 
 @keyframes fadeIn {
